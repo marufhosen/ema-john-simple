@@ -1,0 +1,30 @@
+.product{
+    display: flex;
+    border-bottom: 1px solid purple;
+    padding: 10px;
+}
+.product-name{
+    color: navy;
+    text-align: left;
+    font-weight: 400;
+}
+.product-details{
+    margin-left: 15px;
+}
+.cart-button{
+    background-color: #5a0171;
+    color: white;
+    /* padding: 10px; */
+    letter-spacing: 1px;
+    border: 1px solid purple;
+    height: 30px;
+    width: 150px;
+    cursor: pointer;
+}
+.cart-button:hover{
+    background-color: white;
+    color: black;
+}
+.cart-icon{
+    margin-right: 5px;
+}
