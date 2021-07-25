@@ -37,3 +37,4 @@ const Product = (props) => {
 export default Product;
 
 // When we pass a perameter from onclick event, we have must used arrow function[Like 19 no. line]
+
