@@ -1,18 +1,24 @@
-import React from 'react';
-import logo from '../../images/logo.png';
-import './Header.css';
+import { Avatar } from "@material-ui/core";
+import React from "react";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { userContext } from "../../App";
+import logo from "../../images/logo.png";
+import "./Header.css";
 
 const Header = () => {
-    return (
-        <div className="header">
-            <img src={logo} alt="" />
-            <nav>
-                <a href="/shop">Shop</a>
-                <a href="/review">Order Riview</a>
-                <a href="/inventory">Manage Inventory here</a>
-            </nav>
-        </div>
-    );
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  return (
+    <div className="header">
+      <img src={logo} alt="" />
+      <nav>
+        <Link to="/shop">Shop</Link>
+        <Link to="/review">Order Riview</Link>
+        <Link to="/inventory">Manage Inventory here</Link>
+        <button onClick={() => setLoggedInUser({})}>Sign Out</button>
+      </nav>
+    </div>
+  );
 };
 
 export default Header;
