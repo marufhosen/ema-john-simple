@@ -16,37 +16,41 @@ const Shipment = () => {
     console.log("Form submitted: ", data);
   };
 
-//   console.log(watch("example"));
+  console.log(watch("example"));
 
   return (
-    <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
-      <input
-        defaultValue={loggedInUser.displayName}
-        {...register("name", { required: true })}
-        placeholder="Name"
-      />
-      {errors.name && <span className="error">Name is required</span>}
-      <input
-        defaultValue={loggedInUser.email}
-        {...register("email", { required: true })}
-        placeholder="Email"
-      />
-      {errors.email && <span className="error">Email is required</span>}
-      <input
-        {...register("address", { required: true })}
-        placeholder="Address"
-      />
-      {errors.address && (
-        <span className="error">Address is field is required</span>
-      )}
-      <input
-        {...register("phone", { required: true })}
-        placeholder="Phone number"
-      />
-      {errors.phone && <span className="error">Phone Number is required</span>}
+    <div>
+      <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
+        <input
+          defaultValue={loggedInUser.displayName}
+          {...register("name", { required: true })}
+          placeholder="Name"
+        />
+        {errors.name && <span className="error">Name is required</span>}
+        <input
+          defaultValue={loggedInUser.email}
+          {...register("email", { required: true })}
+          placeholder="Email"
+        />
+        {errors.email && <span className="error">Email is required</span>}
+        <input
+          {...register("address", { required: true })}
+          placeholder="Address"
+        />
+        {errors.address && (
+          <span className="error">Address is field is required</span>
+        )}
+        <input
+          {...register("phone", { required: true })}
+          placeholder="Phone number"
+        />
+        {errors.phone && (
+          <span className="error">Phone Number is required</span>
+        )}
 
-      <input type="submit" />
-    </form>
+        <input type="submit" />
+      </form>
+    </div>
   );
 };
 
