@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import fakeData from "../../fakeData";
 import {
   getDatabaseCart,
   processOrder,
@@ -31,12 +30,13 @@ const Review = () => {
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart);
 
-    const cartProducts = productKeys.map((pk) => {
-      const product = fakeData.find((pd) => pd.key === pk);
-      product.quantity = savedCart[pk];
-      return product;
-    });
-    setCart(cartProducts);
+    fetch("http://localhost:5000/productsByKeys", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(productKeys),
+    })
+      .then((res) => res.json())
+      .then((data) => setCart(data));
   }, []);
 
   let thankYou;
