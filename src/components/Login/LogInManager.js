@@ -36,9 +36,13 @@ export const signInWithEmailandPassword = (email, password) => {
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then((res) => {
-      const newUser = res.user;
-      newUser.error = "";
-      newUser.success = true;
+      const newUser = {
+        name: res.user.displayName,
+        email: res.user.email,
+        success: true,
+        error: "",
+        createSuccess: true,
+      };
       return newUser;
     })
     .catch((error) => {
